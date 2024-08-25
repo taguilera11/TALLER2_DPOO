@@ -1,9 +1,11 @@
 package uniandes.dpoo.estructuras.logica;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.NavigableSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 /**
  * Esta clase tiene un conjunto de métodos para practicar operaciones sobre conjuntos implementados usando un árbol (TreeSet).
@@ -39,7 +41,11 @@ public class SandboxConjuntos
      */
     public List<String> getCadenasComoLista( )
     {	
-        return null;
+    	List<String>lista = new ArrayList<>();
+    	for (String i: (arbolCadenas.stream().sorted()).collect(Collectors.toList())) {
+    		lista.add(i);
+    	}
+    	return lista;
     }
 
     /**
@@ -48,7 +54,11 @@ public class SandboxConjuntos
      */
     public List<String> getCadenasComoListaInvertida( )
     {
-        return null;
+    	List<String>lista = new ArrayList<>();
+    	for (String i: (arbolCadenas.stream().sorted()).collect(Collectors.toList())) {
+    		lista.add(i);
+    	}
+    	return lista.reversed();
     }
 
     /**
@@ -59,7 +69,10 @@ public class SandboxConjuntos
      */
     public String getPrimera( )
     {
-        return null;
+    	if (arbolCadenas.isEmpty()){
+    		return null;
+    	}
+        return arbolCadenas.removeFirst();
     }
 
     /**
@@ -69,8 +82,11 @@ public class SandboxConjuntos
      * @return La última cadena del conjunto, o null si está vacío.
      */
     public String getUltima( )
-    {
-        return null;
+    {	
+    	if (arbolCadenas.isEmpty()){
+    		return null;
+    	}
+    	return arbolCadenas.removeLast();
     }
 
     /**
@@ -89,7 +105,7 @@ public class SandboxConjuntos
      */
     public int getCantidadCadenas( )
     {
-        return -1;
+        return arbolCadenas.size();
     }
 
     /**
@@ -101,7 +117,7 @@ public class SandboxConjuntos
      */
     public void agregarCadena( String cadena )
     {
-
+    	arbolCadenas.add(cadena);
     }
 
     /**
@@ -110,7 +126,7 @@ public class SandboxConjuntos
      */
     public void eliminarCadena( String cadena )
     {
-
+    	arbolCadenas.remove(cadena);
     }
 
     /**
@@ -119,7 +135,7 @@ public class SandboxConjuntos
      */
     public void eliminarCadenaSinMayusculasOMinusculas( String cadena )
     {
-
+    	
     }
 
     /**
@@ -127,7 +143,7 @@ public class SandboxConjuntos
      */
     public void eliminarPrimera( )
     {
-
+    	arbolCadenas.removeFirst();
     }
 
     /**
