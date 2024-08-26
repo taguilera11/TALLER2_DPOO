@@ -164,6 +164,11 @@ public class SandboxConjuntos
      */
     public void volverMayusculas( )
     {
+    	NavigableSet<String>nuevoArbol = new TreeSet<String>( );
+    	for(String i: this.getCadenasComoLista()) {
+    		nuevoArbol.add(i.toUpperCase());
+    	}
+    	arbolCadenas = nuevoArbol;
     }
 
     /**
@@ -171,7 +176,7 @@ public class SandboxConjuntos
      */
     public TreeSet<String> invertirCadenas( )
     {
-        return null;
+    	return (TreeSet<String>) arbolCadenas.descendingSet();
     }
 
     /**
@@ -181,7 +186,14 @@ public class SandboxConjuntos
      */
     public boolean compararElementos( String[] otroArreglo )
     {
-        return false;
+    	List<String> listaValores = this.getCadenasComoLista();
+        
+    	for(String valor: otroArreglo) {
+    		if(!listaValores.contains(valor)){
+    			return false;
+    		}
+    	}
+    	return true;
     }
 
 }
